@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block title %} Questions {% endblock %}
+{% block body%}
+
+{% for msg in get_flashed_messages() %}
+<p style="font-size: 10px; color: red;">{{msg}}</p>
+{% endfor %}
+{{question}}
+<br>
+<form action="/question/answer" method="POST">
+    <div>
+        <input type="radio" id="Yes" value="Yes" name="answer">
+        <label for="Yes">Yes</label>
+    </div>
+    <div>
+        <input type="radio" id="No" value="No" name="answer">
+        <label for="No">No</label>
+    </div>
+    <button>Next Question</button>
+</form>
+
+{% endblock %}
